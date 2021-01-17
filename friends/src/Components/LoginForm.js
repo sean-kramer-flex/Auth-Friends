@@ -20,7 +20,7 @@ const onSubmitHandler = (e) => {
   axios.post('http://localhost:5000/api/login', credentials)
   .then(res => {
     localStorage.setItem('token', res.data.payload)
-    props.history.push('/')
+    props.history.push('/list')
   })
   
   .catch(err => console.log(err))
