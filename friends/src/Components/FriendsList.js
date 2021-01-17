@@ -21,7 +21,7 @@ useEffect(() => {
   return(
     <Container>
     <Table>
-      <thead>
+      <thead style={{background: 'black', color: 'white'}}>
       <tr><th>Name</th><th>Age</th><th>Email</th><th>Edit</th><th>Delete</th></tr>
       </thead>
       <tbody>
@@ -34,7 +34,7 @@ useEffect(() => {
         ))}
       </tbody>
     </Table>
-    
+
     </Container>
 
   )

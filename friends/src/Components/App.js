@@ -4,6 +4,7 @@ import Home from './Home'
 import NavBar from './NavBar';
 import LoginForm from './LoginForm'
 import FriendsList from './FriendsList';
+import PrivateRoute from './PrivateRoute'
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
     
     <Route  exact path="/" component={Home} />
     <Route path="/login" component={LoginForm} />
-    <Route path="/list" component={FriendsList} />
+    <PrivateRoute path="/list" component={FriendsList} />
     </Router>
   )
 }
