@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import LoginForm from './LoginForm'
 import FriendsList from './FriendsList';
 import PrivateRoute from './PrivateRoute'
+import AddNew from './AddNew';
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
     
     <Route  exact path="/" component={Home} />
     <Route path="/login" component={LoginForm} />
+
     <PrivateRoute path="/list" component={FriendsList} />
+    <PrivateRoute path="/add" component={AddNew} />
     </Router>
   )
 }

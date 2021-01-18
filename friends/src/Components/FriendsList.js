@@ -5,7 +5,7 @@ import { Container, Table,Button } from 'reactstrap'
 import { MdEdit, MdDeleteForever } from 'react-icons/md'
 
 
-function FriendsList () {
+function FriendsList (props) {
 
 const [friends, setFriends] = useState([])
 
@@ -18,7 +18,9 @@ const getFriends = () => {
 
 useEffect(() => {
   getFriends()
-}, [])
+}, [friends])
+
+
 
   return(
     <Container>
@@ -37,7 +39,7 @@ useEffect(() => {
             <td><MdDeleteForever /></td>
           </tr>
         ))} */}
-        <Button color="secondary" size="md" active>Add New</Button>
+        <Button color="secondary" size="md" active onClick={() => props.history.push('/add')}>Add New</Button>
       </tbody>
     </Table>
 
