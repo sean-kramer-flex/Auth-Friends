@@ -17,8 +17,7 @@ function FriendItem(props) {
 
   const inputHandler = (e) => {
     console.log('edit input: ', e.target.value);
-setEditedFriend({
-  ...editedFriend, [e.target.name]: e.target.value
+setEditedFriend({[e.target.name]: e.target.value
 })}
 
   const deleteFriend = (id) => {
