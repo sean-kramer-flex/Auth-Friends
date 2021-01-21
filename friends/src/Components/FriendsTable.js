@@ -1,4 +1,6 @@
 import React, {Component, useEffect, useState } from 'react'
+import { connect } from 'react-redux'
+import { getFriends } from '../Redux/friendsActions'
 import FriendsList from './FriendsList'
 import FriendItem from './FriendItem'
 import {axiosWithAuth} from '../Utils/axiosWithAuth'
@@ -8,18 +10,18 @@ import { MdEdit, MdDeleteForever } from 'react-icons/md'
 
 function FriendsTable (props) {
 
-const [friends, setFriends] = useState([])
+// const [friends, setFriends] = useState([])
 
-const getFriends = () => {
-  axiosWithAuth()
-  .get("/api/friends")
-  .then(res => setFriends(res.data))
-  .catch(err => console.log(err))
-}
+// const getFriends = () => {
+//   axiosWithAuth()
+//   .get("/api/friends")
+//   .then(res => setFriends(res.data))
+//   .catch(err => console.log(err))
+// }
 
 useEffect(() => {
-  getFriends()
-}, [friends])
+  props.getFriends()
+}, [])
 
 
 
@@ -30,7 +32,7 @@ useEffect(() => {
       <tr><th>Name</th><th>Age</th><th>Email</th><th>Edit</th><th>Delete</th></tr>
       </thead>
 
-<FriendsList friends={friends}/>
+<FriendsList friends={props.friends}/>
 
       {/* <tbody>
 
@@ -56,4 +58,13 @@ useEffect(() => {
   )
 }
 
-export default FriendsTable
+const mapStateToProps = state => {
+  console.log('state: ', state);
+  return {
+    friends: state.friends
+  }
+}
+
+
+
+export default connect(mapStateToProps, {getFriends})(FriendsTable)

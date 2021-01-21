@@ -10,6 +10,8 @@ const LoginForm = (props) => {
   }
 const [credentials, setCredentials] = useState(initialState)
 
+const [errorMessage, setErrorMessage] = useState('')
+
 const onChangeHandler = (e) => {
   setCredentials({...credentials, [e.target.name]: e.target.value})
 }
@@ -23,7 +25,7 @@ const onSubmitHandler = (e) => {
     props.history.push('/list')
   })
   
-  .catch(err => console.log(err))
+  .catch(err => setErrorMessage(err.message))
 }
 
 
@@ -41,6 +43,7 @@ const onSubmitHandler = (e) => {
       </FormGroup>
       <Button>Submit</Button>
     </Form>
+    {errorMessage ? <h3>{errorMessage}: Invalid Credentials</h3> : <span></span>}
     </Container>
   );
 }
