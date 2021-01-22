@@ -16,6 +16,10 @@ const Example = (props) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const logout = () => {
+    localStorage.setItem('token', '')
+  }
+
   return (
     <div>
       <Navbar color="info" light expand="md">
@@ -26,13 +30,13 @@ const Example = (props) => {
             <NavItem>
               <NavLink href="/list">List of Friends</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="/login">Login</NavLink>
+            <NavItem >
+              <NavLink href="/login" >Login</NavLink>
             </NavItem>
             
           </Nav>
           <NavbarText>
-            <NavLink href="/">
+            <NavLink href="/" onClick={logout}>
               Log out
               </NavLink></NavbarText>
         </Collapse>

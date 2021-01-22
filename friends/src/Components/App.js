@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
-import friendsReducer from '../Redux/friendsReducer'
+import { rootReducer } from '../Redux/Reducers/rootReducer'
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from './Home'
@@ -15,7 +15,7 @@ import FriendsTable from './FriendsTable';
 import PrivateRoute from './PrivateRoute'
 import AddNew from './AddNew';
 
-const store = createStore(friendsReducer, composeWithDevTools(applyMiddleware(logger, thunk)))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger, thunk)))
 
 const App = () => {
   return (

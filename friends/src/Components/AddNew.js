@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { addFriend } from '../Redux/Actions/addFriendsActions'
 import axios from 'axios'
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import { axiosWithAuth } from '../Utils/axiosWithAuth';
@@ -20,13 +22,15 @@ function AddNew(props) {
     const onSubmitHandler = (e) => {
       e.preventDefault()
       console.log('submitted');
-      axiosWithAuth()
-      .post('http://localhost:5000/api/friends', newFriend)
-      .then(res => {
+      // axiosWithAuth()
+      // .post('http://localhost:5000/api/friends', newFriend)
+      // .then(res => {
       props.history.push('/list')
-      })
+      // })
       
-      .catch(err => console.log(err))
+      // .catch(err => console.log(err))
+
+      props.addFriend(newFriend)
     }
     
     
@@ -52,4 +56,6 @@ function AddNew(props) {
       );
     }
 
-export default AddNew;
+
+
+export default connect(null, { addFriend })(AddNew);

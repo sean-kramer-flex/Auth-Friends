@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { getFriends } from '../Redux/friendsActions'
+import { getFriends } from '../Redux/Actions/getFriendsActions'
 import FriendsList from './FriendsList'
 import FriendItem from './FriendItem'
 import {axiosWithAuth} from '../Utils/axiosWithAuth'
@@ -62,7 +62,7 @@ useEffect(() => {
 const mapStateToProps = state => {
   console.log('state: ', state);
   return {
-    friends: state.friends
+    friends: state.get.friends
   }
 }
 
