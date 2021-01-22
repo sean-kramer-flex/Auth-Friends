@@ -8,7 +8,9 @@ const DELETE_FRIEND = "DELETE_FRIEND";
 
 
 const initialState = {
-  friends: "none yet",
+  loading: false,
+  friends: [],
+  error: ''
 };
 
 const friendsReducer = (state = initialState, action) => {

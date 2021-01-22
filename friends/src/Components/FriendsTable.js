@@ -9,6 +9,7 @@ import { MdEdit, MdDeleteForever } from 'react-icons/md'
 
 
 function FriendsTable (props) {
+  console.log('table props: ', props);
 
 // const [friends, setFriends] = useState([])
 

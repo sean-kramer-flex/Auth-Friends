@@ -37,7 +37,7 @@ export const getFriends = () => {
       dispatch(getFriendsSuccess(friends))
     })
     .catch(err => {
-      console.log('action err: ', err);
+      dispatch(getFriendsFailure(err.message))
     })
   }
 }
